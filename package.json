@@ -1,0 +1,36 @@
+{
+  "name": "pte-ielts-mock-app",
+  "version": "1.0.0",
+  "description": "PTE Academic & IELTS Academic Full Practice & Mock Test Web Application",
+  "main": "server.js",
+  "scripts": {
+    "test": "node --test test/*.test.js",
+    "test:e2e": "node scripts/e2e_full_exam_test.js",
+    "start": "node server.js",
+    "start:lan": "node scripts/start_lan.js",
+    "dev": "node --watch server.js",
+    "seed": "node database/seed.js",
+    "seed:bank": "node database/generate_mock_bank.js",
+    "fetch:sources": "python3 scripts/fetch_sources.py",
+    "generate:audio": "uv run --with edge-tts python scripts/generate_exam_audio.py",
+    "generate:audio:bank": "uv run --with edge-tts python scripts/generate_audio_bulk.py",
+    "verify:media": "node database/generate_mock_bank.js --verify-media",
+    "smoke:bank": "node scripts/calibrate_bank.js",
+    "evaluate": "node database/evaluator_agent.js"
+  },
+  "keywords": [
+    "pte",
+    "ielts",
+    "mock-test",
+    "practice-app",
+    "web-audio"
+  ],
+  "author": "Antigravity AI",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.19.2",
+    "multer": "^2.4.0",
+    "sqlite3": "^6.0.1"
+  }
+}

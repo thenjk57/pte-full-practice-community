@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Independent PTE Academic Practice Portal</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body class="bg-[#eef2f6] text-slate-800 flex flex-col min-h-screen">
+
+    <!-- Pearson Portal Header -->
+    <header class="pearson-portal-header exam-header">
+        <div class="flex items-center gap-4">
+            <a href="#" id="nav-dashboard" class="flex items-center gap-2 hover:opacity-95 transition-opacity select-none">
+                <span class="pearson-logo-mark text-white">PTE Practice</span>
+                <span class="pearson-logo-sep">|</span>
+                <span class="pearson-exam-name text-white">PTE Academic</span>
+            </a>
+            <span class="text-xs bg-[#003870] text-sky-200 px-2 py-0.5 rounded font-semibold hidden md:inline">
+                Candidate Practice Portal
+            </span>
+        </div>
+
+        <!-- Center: Item / Section Progress (When in Exam) -->
+        <div id="question-progress" class="text-sm font-semibold text-slate-200">
+            <!-- Dynamic Progress string -->
+        </div>
+
+        <!-- Right Controls: Navigation & Candidate Info -->
+        <div class="flex items-center gap-3">
+            <div id="timer-container" class="hidden">
+                <div class="timer-badge">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    <span id="exam-timer">120:00</span>
+                </div>
+            </div>
+
+            <a href="#" id="nav-vault" class="pearson-btn-kiosk text-xs py-1.5 px-3 flex items-center gap-1.5">
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+                <span>Score Reports</span>
+            </a>
+
+            <div class="hidden sm:flex items-center gap-2 text-xs text-sky-100 pl-2 border-l border-blue-900">
+                <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+                <span>Practice Candidate</span>
+            </div>
+
+            <button id="btn-end-exam" class="btn-danger text-xs hidden">
+                Exit Exam
+            </button>
+        </div>
+    </header>
+
+    <!-- Main Dynamic Workspace View -->
+    <main id="main-container" class="flex-grow p-4 md:p-6 container mx-auto">
+        <!-- Views rendered by app.js router -->
+    </main>
+
+    <!-- Pearson Official Portal Footer -->
+    <footer class="pearson-portal-footer border-t border-slate-300 bg-white py-4 text-center text-xs text-slate-600">
+        <div class="max-w-6xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-2">
+            <span>Independent PTE Academic practice &bull; Not affiliated with Pearson &bull; Scores are estimates</span>
+            <span class="text-slate-500 text-[11px]">Practice audio and scoring do not reproduce Pearson's proprietary systems</span>
+        </div>
+    </footer>
+
+    <!-- App Scripts -->
+    <script src="/js/audio_recorder.js"></script>
+    <script src="/js/pte_exam.js"></script>
+    <script src="/js/evaluation_view.js"></script>
+    <script src="/js/app.js"></script>
+</body>
+</html>

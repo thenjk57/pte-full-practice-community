@@ -1,0 +1,72 @@
+# Dependencies
+node_modules/
+
+# Runtime / user data
+uploads/
+*.log
+nohup.out
+npm-debug.log*
+
+# Database is a build artifact — regenerate with:
+#   node database/seed.js && node database/generate_mock_bank.js
+database/practice.db
+database/practice.db-journal
+database/practice.db-wal
+database/practice.db-shm
+
+# Generated TTS audio is a build artifact (81 MB / 609 files)
+public/audio/exam/gen/
+
+# Editor / OS
+.DS_Store
+*.swp
+.idea/
+.vscode/
+
+# Credentials, environment files and signing material
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+*.keystore
+*service-account*.json
+*service_account*.json
+credentials*.json
+secrets*.json
+
+# Local databases, recordings and private exports
+*.db
+*.db-*
+*.sqlite
+*.sqlite3
+*.sqlite-*
+*.sqlite3-*
+*.webm
+*.wav
+*.m4a
+backups/
+private-backups/
+*.bundle
+*.dump
+
+# Personal study notes, third-party reports and browser captures
+Gurully Practice Report/
+docs/arno-comparison/
+docs/superpowers/
+e2e_shots/
+audit_results.json
+AI_HANDOFF.md
+PROJECT_MANAGEMENT_101.md
+IMPROVEMENT_PLAN.md
+QA_REPORT.md
+database/remedial_drill_data.js
+database/add_remedial_drill.js
+database/add_gurully_drill.js
+
+# Local tool environments
+.venv/
+__pycache__/
+*.pyc

@@ -1,0 +1,19 @@
+# Send only application source and exam assets to the remote builder.
+*
+!package.json
+!package-lock.json
+!server.js
+!server_transport.js
+!evaluator.js
+!pte_scoring.js
+!site_access.js
+!database/
+!database/**
+!content/
+!content/**
+!public/
+!public/**
+
+# Candidate history never enters a deployment image.
+database/practice.db
+database/practice.db-*

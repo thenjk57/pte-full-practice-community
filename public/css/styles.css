@@ -1,0 +1,932 @@
+/* ==========================================================================
+   PEARSON PTE ACADEMIC PORTAL & TEST CENTER DESIGN SYSTEM
+   Official color palette, typography, and test center ergonomics.
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+:root {
+    --bg-main: #eef2f6;
+    --bg-card: #ffffff;
+    --bg-card-hover: #ffffff;
+    --border-card: #cbd5e1;
+    --accent-blue: #0072ce;
+    --accent-navy: #002244;
+    --accent-navy-dark: #00172e;
+    --accent-indigo: #005696;
+    --accent-emerald: #16a34a;
+    --accent-amber: #d97706;
+    --accent-gold: #ffcc00;
+    --accent-rose: #dc2626;
+    --text-primary: #0f172a;
+    --text-secondary: #475569;
+    --text-muted: #64748b;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+    background-color: var(--bg-main);
+    color: var(--text-primary);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, .brand-font {
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+    letter-spacing: -0.2px;
+}
+
+/* Pearson Cards */
+.glass-card {
+    background: #ffffff;
+    border: 1px solid #cbd5e1;
+    border-radius: 4px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+}
+
+.glass-nav,
+.exam-header {
+    background: #002244;
+    border-bottom: 3px solid #005696;
+    color: #ffffff;
+    height: 52px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 24px;
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+}
+
+/* Exam Timer & Badges */
+.timer-badge {
+    background: #1e3a5f;
+    border: 1px solid #3b5a80;
+    color: #ffffff;
+    padding: 4px 12px;
+    border-radius: 3px;
+    font-weight: 700;
+    font-size: 0.85rem;
+    font-family: "Courier New", Courier, monospace;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.timer-badge.warning {
+    background: #7f1d1d;
+    border-color: #ef4444;
+    color: #ffffff;
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.85; }
+}
+
+/* Badge Styles */
+.badge-pte {
+    background: #ebf3fa;
+    color: #003366;
+    border: 1px solid #93c5fd;
+    padding: 3px 8px;
+    border-radius: 3px;
+    font-weight: 700;
+    font-size: 0.72rem;
+    letter-spacing: 0.4px;
+}
+
+.badge-ielts {
+    background: #f1f5f9;
+    color: #334155;
+    border: 1px solid #cbd5e1;
+    padding: 3px 8px;
+    border-radius: 3px;
+    font-weight: 700;
+    font-size: 0.72rem;
+    letter-spacing: 0.4px;
+}
+
+/* Buttons */
+.btn-primary {
+    background: #ffcc00;
+    color: #002244;
+    font-weight: 700;
+    font-size: 0.9rem;
+    padding: 9px 24px;
+    border-radius: 3px;
+    border: 1px solid #cca300;
+    cursor: pointer;
+    transition: background 0.15s ease;
+    letter-spacing: 0.3px;
+}
+
+.btn-primary:hover {
+    background: #ffd633;
+}
+
+.btn-secondary {
+    background: #ffffff;
+    color: #003366;
+    font-weight: 600;
+    font-size: 0.85rem;
+    padding: 6px 16px;
+    border-radius: 3px;
+    border: 1px solid #94a3b8;
+    cursor: pointer;
+    transition: background 0.12s ease;
+}
+
+.btn-secondary:hover {
+    background: #e2e8f0;
+}
+
+.btn-danger {
+    background: #b91c1c;
+    color: #ffffff;
+    border: 1px solid #991b1b;
+    padding: 6px 14px;
+    border-radius: 3px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.btn-danger:hover {
+    background: #991b1b;
+}
+
+/* Clean Pearson Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+::-webkit-scrollbar-track {
+    background: #e2e8f0;
+}
+::-webkit-scrollbar-thumb {
+    background: #94a3b8;
+    border-radius: 2px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #64748b;
+}
+
+/* ==========================================================================
+   CANDIDATE DASHBOARD TABS & PAGINATION
+   ========================================================================== */
+.dashboard-tab {
+    padding: 10px 20px;
+    font-weight: 700;
+    font-size: 0.88rem;
+    color: #475569;
+    border-bottom: 3px solid transparent;
+    cursor: pointer;
+    transition: all 0.15s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: transparent;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+}
+
+.dashboard-tab:hover {
+    color: #002244;
+}
+
+.dashboard-tab.active {
+    color: #005696;
+    border-bottom-color: #005696;
+    background-color: #ffffff;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.02);
+}
+
+.page-btn {
+    padding: 6px 12px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    border-radius: 4px;
+    border: 1px solid #cbd5e1;
+    background: #ffffff;
+    color: #334155;
+    cursor: pointer;
+    transition: all 0.15s ease;
+    min-width: 32px;
+    text-align: center;
+}
+
+.page-btn:hover:not(:disabled) {
+    background: #f1f5f9;
+    border-color: #94a3b8;
+    color: #002244;
+}
+
+.page-btn.active {
+    background: #002244;
+    color: #ffffff;
+    border-color: #002244;
+}
+
+.page-btn:disabled {
+    opacity: 0.45;
+    cursor: not-allowed;
+}
+
+/* ==========================================================================
+   OFFICIAL PEARSON PTE ACADEMIC TEST CENTER SIMULATOR THEME
+   Replicates exact exam center ergonomics, color hierarchy, and controls.
+   ========================================================================== */
+
+body.pearson-mode {
+    background-color: #eef2f6 !important;
+    color: #1e293b !important;
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow-x: hidden !important;
+    user-select: text;
+}
+
+/* Hide the legacy portal chrome while the Pearson exam is on screen.
+   The Pearson exam renders its own <footer class="pearson-footer-bar"> that
+   holds the "Item X of Y" counter and the ONLY Next button — so it must be
+   excluded. Without the :not(), this rule hid the exam footer with
+   !important, leaving candidates with no visible progress counter and no way
+   to advance past an item. */
+body.pearson-mode .exam-header,
+body.pearson-mode footer:not(.pearson-footer-bar) {
+    display: none !important;
+}
+
+body.pearson-mode #main-container {
+    max-width: 100% !important;
+    width: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+.pearson-exam-wrapper {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background: #eef2f6;
+    padding-bottom: 72px;
+}
+
+/* 1. Pearson Top Header Bar */
+.pearson-header-bar {
+    background: #002244;
+    color: #ffffff;
+    height: 52px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    border-bottom: 3px solid #005696;
+    user-select: none;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+}
+
+.pearson-brand-area {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.pearson-logo-mark {
+    font-family: "Georgia", serif, Arial;
+    font-size: 1.25rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    color: #ffffff;
+}
+
+.pearson-logo-sep {
+    color: #60a5fa;
+    font-weight: 300;
+    font-size: 1.1rem;
+}
+
+.pearson-exam-name {
+    font-size: 0.95rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    color: #ffffff;
+}
+
+.pearson-candidate-tag {
+    font-size: 0.78rem;
+    color: #bfdbfe;
+    border-left: 1px solid #1e40af;
+    padding-left: 12px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.pearson-section-title {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #ffffff;
+    letter-spacing: 0.3px;
+}
+
+.pearson-header-controls {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.pearson-timer-box {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #ffffff;
+}
+
+.pearson-exam-timer-digits {
+    font-family: "Courier New", Courier, monospace;
+    font-weight: 700;
+    font-size: 1.05rem;
+    color: #ffffff;
+    letter-spacing: 1px;
+}
+
+.pearson-btn-kiosk {
+    background: #1e3a5f;
+    color: #cbd5e1;
+    border: 1px solid #3b5a80;
+    padding: 3px 10px;
+    border-radius: 3px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.15s ease, color 0.15s ease;
+}
+
+.pearson-btn-kiosk:hover {
+    background: #2b4c7e;
+    color: #ffffff;
+}
+
+/* 2. Pearson Sub-Header / Item Instruction Panel */
+.pearson-instruction-panel {
+    background: #ebf3fa;
+    border-bottom: 2px solid #005696;
+    padding: 12px 28px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.pearson-item-type-title {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: #003366;
+    margin-bottom: 4px;
+}
+
+.pearson-item-prompt-text {
+    font-size: 0.92rem;
+    color: #1e293b;
+    line-height: 1.45;
+}
+
+/* 3. Pearson Test Canvas Body */
+.pearson-content-body {
+    flex: 1;
+    max-width: 1080px;
+    width: 100%;
+    margin: 18px auto;
+    padding: 24px 32px;
+    background: #ffffff;
+    border: 1px solid #cbd5e1;
+    border-radius: 4px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+}
+
+/* 4. Pearson Standard Boxes (Recorded Answer / Audio Status) */
+.pearson-box {
+    border: 1px solid #94a3b8;
+    background: #f8fafc;
+    border-radius: 3px;
+    margin-top: 16px;
+    margin-bottom: 16px;
+    overflow: hidden;
+}
+
+.pearson-box-header {
+    background: #e2e8f0;
+    border-bottom: 1px solid #cbd5e1;
+    padding: 7px 14px;
+    font-weight: 700;
+    font-size: 0.85rem;
+    color: #1e293b;
+    letter-spacing: 0.3px;
+}
+
+.pearson-box-content {
+    padding: 14px 18px;
+}
+
+.pearson-status-text {
+    font-size: 0.9rem;
+    color: #1e293b;
+    margin-bottom: 10px;
+}
+
+.pearson-progress-bar-container {
+    height: 16px;
+    background: #e2e8f0;
+    border: 1px solid #94a3b8;
+    border-radius: 2px;
+    overflow: hidden;
+    position: relative;
+}
+
+.pearson-progress-bar-fill {
+    height: 100%;
+    width: 0%;
+    background: #0072ce;
+    transition: width 0.15s linear;
+}
+
+.pearson-mic-meter-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 10px;
+    font-size: 0.8rem;
+    color: #475569;
+}
+
+.pearson-meter-bar {
+    flex: 1;
+    height: 10px;
+    background: #e2e8f0;
+    border: 1px solid #cbd5e1;
+    border-radius: 2px;
+    overflow: hidden;
+    display: flex;
+}
+
+.pearson-meter-bar-fill {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, #10b981 0%, #22c55e 75%, #f59e0b 90%, #ef4444 100%);
+    transition: width 0.08s ease-out;
+}
+
+/* 5. Passage Box */
+.pearson-passage-box {
+    background: #ffffff;
+    border: 1px solid #cbd5e1;
+    padding: 18px 22px;
+    font-size: 0.98rem;
+    line-height: 1.65;
+    color: #0f172a;
+    border-radius: 3px;
+    margin-bottom: 18px;
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.02);
+}
+
+/* 6. Pearson Writing Toolbar & Textarea */
+.pearson-toolbar {
+    display: flex;
+    gap: 4px;
+    background: #f1f5f9;
+    border: 1px solid #94a3b8;
+    border-bottom: none;
+    border-radius: 3px 3px 0 0;
+    padding: 6px 10px;
+}
+
+.pearson-toolbar-btn {
+    background: #ffffff;
+    border: 1px solid #94a3b8;
+    color: #1e293b;
+    font-size: 0.8rem;
+    font-weight: 600;
+    padding: 4px 14px;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: background 0.12s ease;
+}
+
+.pearson-toolbar-btn:hover {
+    background: #e2e8f0;
+}
+
+.pearson-toolbar-btn:active {
+    background: #cbd5e1;
+}
+
+.pearson-editor-textarea {
+    width: 100%;
+    border: 1px solid #94a3b8;
+    border-radius: 0 0 3px 3px;
+    padding: 14px;
+    font-size: 0.95rem;
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #0f172a;
+    resize: vertical;
+    outline: none;
+    box-sizing: border-box;
+}
+
+.pearson-editor-textarea:focus {
+    border-color: #0072ce;
+}
+
+.pearson-word-count-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.85rem;
+    color: #475569;
+    margin-top: 6px;
+    font-weight: 600;
+}
+
+/* 7. Pearson Two-Column Re-order Paragraphs */
+.pearson-reorder-grid {
+    display: grid;
+    grid-template-columns: 1fr 48px 1fr;
+    gap: 12px;
+    align-items: stretch;
+    margin-top: 14px;
+}
+
+.pearson-reorder-column {
+    border: 1px solid #94a3b8;
+    background: #f8fafc;
+    border-radius: 3px;
+    display: flex;
+    flex-direction: column;
+    min-height: 290px;
+}
+
+.pearson-reorder-header {
+    background: #e2e8f0;
+    border-bottom: 1px solid #cbd5e1;
+    padding: 7px 12px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: #1e293b;
+}
+
+.pearson-reorder-list {
+    padding: 10px;
+    flex: 1;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    min-height: 230px;
+}
+
+.pearson-reorder-list.drag-over {
+    background: #eff6ff;
+    border: 2px dashed #0284c7;
+}
+
+.pearson-reorder-item {
+    background: #ffffff;
+    border: 1px solid #94a3b8;
+    padding: 10px 12px;
+    border-radius: 3px;
+    font-size: 0.88rem;
+    line-height: 1.45;
+    cursor: grab;
+    user-select: none;
+    transition: background 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.pearson-reorder-item:active {
+    cursor: grabbing;
+}
+
+.pearson-reorder-item.selected {
+    background: #e0f2fe;
+    border-color: #0284c7;
+    outline: 2px solid #0284c7;
+}
+
+.pearson-reorder-item.dragging {
+    opacity: 0.4;
+}
+
+.pearson-reorder-controls {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.pearson-ctrl-btn {
+    width: 38px;
+    height: 38px;
+    background: #ffffff;
+    border: 1px solid #94a3b8;
+    border-radius: 3px;
+    font-weight: 700;
+    font-size: 1rem;
+    color: #1e293b;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    user-select: none;
+}
+
+.pearson-ctrl-btn:hover:not(:disabled) {
+    background: #e2e8f0;
+}
+
+.pearson-ctrl-btn:disabled {
+    opacity: 0.35;
+    cursor: not-allowed;
+}
+
+/* 8. Reading Fill in the Blanks: Drag & Drop Word Bank */
+.pearson-fib-dropzone {
+    display: inline-block;
+    min-width: 110px;
+    height: 28px;
+    line-height: 26px;
+    border: 1px dashed #005696;
+    background: #f0f7ff;
+    color: #003366;
+    font-weight: 700;
+    font-size: 0.88rem;
+    text-align: center;
+    padding: 0 8px;
+    margin: 0 4px;
+    border-radius: 3px;
+    vertical-align: middle;
+    cursor: pointer;
+    transition: background 0.15s ease, border-color 0.15s ease;
+}
+
+.pearson-fib-dropzone.filled {
+    border: 1px solid #0284c7;
+    background: #e0f2fe;
+    color: #0369a1;
+}
+
+.pearson-fib-dropzone.drag-over {
+    background: #bbf7d0;
+    border-color: #16a34a;
+}
+
+.pearson-word-bank-box {
+    margin-top: 20px;
+    background: #f8fafc;
+    border: 1px solid #94a3b8;
+    border-radius: 3px;
+    padding: 12px 16px;
+}
+
+.pearson-word-bank-header {
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: #475569;
+    margin-bottom: 10px;
+}
+
+.pearson-word-bank-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    min-height: 40px;
+    align-items: center;
+}
+
+.pearson-bank-word {
+    background: #ffffff;
+    border: 1px solid #94a3b8;
+    padding: 5px 12px;
+    border-radius: 3px;
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: #0f172a;
+    cursor: grab;
+    user-select: none;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+    transition: all 0.15s ease;
+}
+
+.pearson-bank-word:hover {
+    background: #e0f2fe;
+    border-color: #0284c7;
+}
+
+.pearson-bank-word.selected {
+    outline: 2px solid #0284c7;
+    background: #bae6fd;
+}
+
+.pearson-bank-word.used {
+    display: none;
+}
+
+/* 9. Dropdown and Text Blanks */
+.pearson-blank-select {
+    background: #ffffff;
+    border: 1px solid #94a3b8;
+    color: #003366;
+    padding: 3px 6px;
+    border-radius: 2px;
+    font-weight: 600;
+    font-size: 0.92rem;
+    margin: 0 4px;
+    outline: none;
+}
+
+.pearson-blank-input {
+    background: #ffffff;
+    border: 1px solid #94a3b8;
+    color: #003366;
+    padding: 3px 8px;
+    border-radius: 2px;
+    font-size: 0.92rem;
+    font-weight: 600;
+    margin: 0 4px;
+    width: 140px;
+    text-align: center;
+    outline: none;
+}
+
+.pearson-blank-input:focus,
+.pearson-blank-select:focus {
+    border-color: #0072ce;
+    box-shadow: 0 0 0 2px rgba(0, 114, 206, 0.2);
+}
+
+.pearson-mcq-option {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    background: #ffffff;
+    border: 1px solid #cbd5e1;
+    padding: 12px 16px;
+    border-radius: 3px;
+    cursor: pointer;
+    margin-bottom: 8px;
+    transition: background 0.15s ease;
+}
+
+.pearson-mcq-option:hover {
+    background: #f8fafc;
+}
+
+.pearson-mcq-option input {
+    margin-top: 3px;
+    accent-color: #0072ce;
+}
+
+/* 10. Pearson Fixed Bottom Bar */
+.pearson-footer-bar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 52px;
+    background: #002244;
+    border-top: 2px solid #005696;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 24px;
+    z-index: 999;
+}
+
+.pearson-item-progress-text {
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: #cbd5e1;
+}
+
+.pearson-next-btn {
+    background: #ffcc00;
+    color: #002244;
+    font-weight: 700;
+    font-size: 0.9rem;
+    padding: 7px 28px;
+    border-radius: 3px;
+    border: 1px solid #cca300;
+    cursor: pointer;
+    letter-spacing: 0.5px;
+    transition: background 0.15s ease;
+}
+
+.pearson-next-btn:hover {
+    background: #ffd633;
+}
+
+/* 11. Pearson Confirmation Modal */
+.pearson-modal-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.pearson-modal-box {
+    background: #ffffff;
+    border: 2px solid #002244;
+    border-radius: 4px;
+    max-width: 440px;
+    width: 90%;
+    padding: 24px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+    text-align: center;
+}
+
+.pearson-modal-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #002244;
+    margin-bottom: 12px;
+}
+
+.pearson-modal-msg {
+    font-size: 0.9rem;
+    color: #475569;
+    line-height: 1.5;
+    margin-bottom: 20px;
+}
+
+.pearson-modal-actions {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+}
+
+.pearson-modal-btn-cancel {
+    background: #f1f5f9;
+    border: 1px solid #cbd5e1;
+    color: #334155;
+    font-weight: 600;
+    font-size: 0.85rem;
+    padding: 6px 18px;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.pearson-modal-btn-cancel:hover {
+    background: #e2e8f0;
+}
+
+.pearson-modal-btn-confirm {
+    background: #002244;
+    border: 1px solid #00172e;
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 0.85rem;
+    padding: 6px 22px;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.pearson-modal-btn-confirm:hover {
+    background: #003366;
+}
+
+/* 12. Pre-test Equipment Check Screen */
+.pearson-check-card {
+    background: #f8fafc;
+    border: 1px solid #cbd5e1;
+    border-radius: 4px;
+    padding: 20px;
+    margin-bottom: 16px;
+}
+
+.pearson-check-step-title {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #003366;
+    margin-bottom: 8px;
+}
+
