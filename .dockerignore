@@ -1,4 +1,4 @@
-# Send only application source and exam assets to the remote builder.
+# Allow only the files used by the image build.
 *
 !package.json
 !package-lock.json
@@ -10,10 +10,35 @@
 !database/
 !database/**
 !content/
-!content/**
+!content/sources/
+!content/sources/**
 !public/
 !public/**
+!scripts/
+!scripts/audio_receipt.py
+!scripts/generate_audio_bulk.py
 
-# Candidate history never enters a deployment image.
-database/practice.db
-database/practice.db-*
+# Even inside allowed directories, private/runtime artifacts stay out.
+**/*.db
+**/*.db-*
+**/*.sqlite
+**/*.sqlite3
+**/*.sqlite-*
+**/*.sqlite3-*
+**/.env
+**/.env.*
+**/*.pem
+**/*.key
+**/*.p12
+**/*.pfx
+**/*service-account*.json
+**/*service_account*.json
+**/credentials*.json
+**/secrets*.json
+**/*.webm
+**/*.wav
+**/*.m4a
+public/audio/exam/gen/
+database/remedial_drill_data.js
+database/add_remedial_drill.js
+database/add_gurully_drill.js

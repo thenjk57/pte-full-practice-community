@@ -1,10 +1,16 @@
 services:
   - type: web
-    name: pte-practice-app
-    runtime: node
-    plan: free
-    buildCommand: npm install
-    startCommand: npm start
+    name: pte-full-practice-community
+    runtime: docker
+    plan: starter
+    disk:
+      name: practice-data
+      mountPath: /data
+      sizeGB: 1
     envVars:
       - key: NODE_ENV
         value: production
+      - key: PTE_REQUIRE_AUTH
+        value: "1"
+      - key: PTE_SITE_PASSWORD
+        generateValue: true

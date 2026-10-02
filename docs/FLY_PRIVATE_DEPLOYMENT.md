@@ -1,9 +1,11 @@
 # Private internet deployment on Fly.io
 
 This app needs a running Node server, a persistent SQLite database, and
-persistent storage for uploaded speaking recordings. The Fly image bundles a
-clean question bank (32 tests, including 30 full mocks) and all 609 generated
-exam audio files. It does not bundle local candidate attempts or recordings.
+persistent storage for uploaded speaking recordings. The default Docker image bundles a clean question bank with one full mock
+and two drills. To build all 30 mocks and their generated audio, use
+`fly deploy --build-arg INCLUDE_FULL_BANK=true`; this needs internet access
+to the speech service during the build. The image excludes local candidate
+attempts and recordings.
 
 ## Before deployment
 
@@ -40,7 +42,7 @@ Machines without changing data storage will split practice history.
 
 - `fly status` shows a healthy Machine and the intended release.
 - Anonymous requests to the homepage and `/api/attempts` return HTTP 401.
-- Authenticated requests to `/api/tests` return 32 tests; a generated exam MP3
+- Authenticated requests to `/api/tests` return 3 tests for the default image (32 with the full-bank build); a generated exam MP3
   loads over HTTPS.
 - Complete a short test on one device. Confirm the score report and recording
   from another device using the same site password.

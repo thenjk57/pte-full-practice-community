@@ -1,0 +1,20 @@
+services:
+  pte:
+    build:
+      context: .
+      args:
+        INCLUDE_FULL_BANK: ${PTE_INCLUDE_FULL_BANK:-false}
+    image: pte-full-practice-community:local
+    init: true
+    restart: unless-stopped
+    ports:
+      - "${PTE_BIND_ADDRESS:-127.0.0.1}:${PTE_PORT:-3000}:3000"
+    environment:
+      PTE_REQUIRE_AUTH: ${PTE_REQUIRE_AUTH:-0}
+      PTE_SITE_PASSWORD: ${PTE_SITE_PASSWORD:-}
+    volumes:
+      - practice-data:/data
+    stop_grace_period: 20s
+
+volumes:
+  practice-data:

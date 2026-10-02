@@ -16,6 +16,14 @@ If you can help fix bugs, improve the practice questions, check scoring, or make
 
 This is an independent community project. Pearson does not endorse it. Practice scores are estimates; they do not predict or replace an official PTE result. Some question types and exam details still need work. Speaking responses without verified transcripts remain unverified.
 
+## Run with Docker
+
+```bash
+docker compose up -d --build
+```
+
+Open <http://localhost:3000>. Docker stores attempts and recordings in a persistent volume. The default image includes the first mock and two drills; see [Docker hosting](docs/DOCKER.md) to build all 30 mocks, configure HTTPS and password protection, or back up your data.
+
 ## Run it locally
 
 Install Node.js 22 or later and npm. Then run:
