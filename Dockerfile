@@ -18,7 +18,7 @@ RUN node database/seed.js \
          true) node database/generate_mock_bank.js \
            && python3 -m venv /tmp/tts \
            && /tmp/tts/bin/pip install --no-cache-dir edge-tts==7.2.3 \
-           && /tmp/tts/bin/python scripts/generate_audio_bulk.py \
+           && /tmp/tts/bin/python -u scripts/generate_audio_bulk.py \
            && node database/generate_mock_bank.js --verify-media ;; \
          false) ;; \
          *) echo "INCLUDE_FULL_BANK must be true or false" >&2; exit 1 ;; \
